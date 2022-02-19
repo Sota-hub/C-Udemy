@@ -1,24 +1,24 @@
-// Section12 - 98
 #include <stdio.h>
 
-int arraySum (int *ptr, const int n);
-
-int main(void)
+int main()
 {
-  int values[10] = { 3, 7, -9, 3, 6, -1, 7, 9, 1, -5 };
+  FILE *fp;
+  int c;
+  char str[61];
 
-  printf("The sum is %d\n", arraySum(values, 10));
+  fp = fopen("file.txt", "r");
   
+  if (fp == NULL)
+  {
+    perror("Error in opeing file");
+    return 0;
+  }
+
+  if(fgets (str, 60, fp) != NULL);
+    printf("%s", str);
+
+  fclose(fp);
+  fp = NULL;
+
   return 0;
-}
-
-int arraySum (int *ptr, const int n)
-{
-  int sum = 0;
-  int  *const  arrayEnd = ptr + n;
-
-  for ( ; ptr < arrayEnd; ++ptr )
-    sum += *ptr;
-
-  return sum;
 }
