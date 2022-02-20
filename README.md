@@ -5,42 +5,31 @@
 ## Memo
 C(Udemy)
 
+### basic
 32bits —> 4bytes(8 * 4)
 64bits —> 8bytes
 
-printf() —> does’t use &
-scanf() —> use &
-
-
-address treatment
-==================================
+### address treatment
 *value = アドレス(int func(const char *value))
 *value = 実際の値(destructuring)
 value = アドレス(plain)
-==================================
 
 
-C’s Benefits
-===========================================
+### C’s Benefits
 Fast and effecient
 Portable
 Function rich and libraries
 Modularity
 Easy to extend
 Variety of data types and porwerful operators
-===========================================
 
-
-.vscode setting
-=================================
+### .vscode setting
 cpp_properties.json —> define the compiler
 tasks.json —> define how to built
 launch.json —> specify how to debug
-=================================
 
 
-Data type
-========================================================================
+### Data type
 int  <— contain integer
 float <— contain decimal number(4bytes) & have to append 「f」to the end of the number(12.5f)
 double <— container larger decimal number than float(8bytes)
@@ -66,28 +55,24 @@ short int <— used for short
 long int <— used for long constant & have to append 「l」to the end of the number(12.5e+7l)
 unsigned int <— means positive number
 signed int <— means positive and negative
-========================================================================
 
 
-Format specifier
-================
+### Format specifier
 %i —> int
 %f —> float
 %e/%g —> double
 %c —> char
 %i —> bool
-[???What is the difference???]
+
 %s —> means string
 %d —> means int(I think this is better than %i)
 %lf —> means double (I think this is better than %e/%g)
 & —> means address
 %u —> use with sizeof
 %p —> means pointer
-================
 
 
-Bitwise operators
-=================================================
+### Bitwise operators
    result = a & b; // 0000 1100 - 8+4=12
   0011 1100
   0000 1101
@@ -120,62 +105,51 @@ Bitwise operators
 
   result = a >> 4; // 0000 0011 - 2+1=3
   0000 0011 (move right 4 & drop off overhanged numbers)
-=================================================
 
 
-Size of data (in m1 mac)
-============================
+### Size of data (m1)
 データタイプ			メモリサイズ
-————————————————————
+———————————————————————————————————————
 char 		—> 		1 bytes
 short  		—> 		2 bytes
-int  			—> 		4 bytes
+int  		—> 		4 bytes
 float 		—> 		4 bytes
-double  		—> 		8 bytes
+double  	—> 		8 bytes
 long  		—> 		8 bytes
 long long  	—> 		8 bytes
 long double  	—> 		8 bytes
-============================
 
 
-Array
-====================================
+### Array
 long numbers[10] —> contains 10 elemets
 long numbers[2][3] = {{10, 20, 30}, {11, 21, 31}}
-====================================
 
 
-String
-================================================
+### String
 char myString[20] —> contain 19 words because of \0
 char word[10] = “Hello!” —> empty parts are allocated empty
 char word[] = “Hello!” —> automatic sizing
 I can’t use == to compare strings
-================================================
 
 
-Constant
-======================================================
+### Constant
 #define TAXRATE 0.015
 #define CHARECTER “naya”
 or
 const int MONTH=12
 I can use define anywhere because preprocessor doesn’t have a scope 
-======================================================
 
 
-Character strings
-================================
+### Character strings
 strchr / strstr / strtok returns address
 
  □ □ □ □ □ □ □ <—  □ means an address
  T   h  i   s        i   s 
-================================
 
 
-const pointer
+### const pointer
 able to change the address(this means the value pointed can’t change)
-==================================================================
+
 long value = 9999L;
 const long *pvalue = &value;
 long number = 8888L;
@@ -187,44 +161,27 @@ int *const pcount = &value;
 
 (can’t change anything)
 const int *const pcount = &value;
-==================================================================
 
 
-pointer array
-===================
+### pointer array
 valuesPtr = values
 means
 valuesPtr = &values[0]
-===================
 
 
-array loop
+### array loop
 Section12 - 98 & 99
-=============================
 values[10] = 27;
 *(valuesPtr + 10); 「= 27」
 or 
 valuesPtr += 10; 「= 27」
 
-values[0]	values[1]		values[2]
- □ 			□ 			□ 
-ptr = 1		ptr=2		ptr=3
-=============================
+values[0]	  values[1]	  values[2]
+     □ 			□ 		□ 
+  ptr=1		     ptr=2	     ptr=3
 
 
-===============================================
-plain number express 1 to x
-  const char *address = string;		string = 1
-
-  while(*address)
-    ++address;						address = 1
-	
-  return address - string;			address = 5 - string = 1
-===============================================
-
-
-malloc, calloc, realloc
-======================================================================================
+### malloc, calloc, realloc
 malloc return address <— allocate memory without initializing
 int *pNumber = (*int)malloc(25*sizeof(int)); <— memory for 25 ints
 [finish pNumbers role]
@@ -242,11 +199,9 @@ strcat(stc, “.com”).\;
 
 malloc [0]:0xcdcdcdcd, [1]:0xcdcdcdcd, [2]:0xcdcdcdcd
 calloc [0]:0x00000000, [1]:0x00000000, [2]:0x00000000
-======================================================================================
 
 
-structure
-===========================================
+### structure
 [when I use a structure many times]
 struct data
 {
@@ -272,20 +227,16 @@ data tommorow = {.month = 6, .day = 1, .year = 2010}
 today = (struct date) {6, 1, 2010}
 or
 today = (struct date) {.month = 6, .day = 1, .year = 2010}
-===========================================
 
 
-structure with pointer
-========================
+### structure with pointer
 if ((*datePtr).month == 12)
 =
 if (dataPrt -> month == 12)
-========================
 
 
-Accessing file
+### Accessing file
 They just look for files in same directory
-====================================
 ・file = fopen( text.txt, ‘w’ ) 
 “w” —> write / create
 “a” —> add / create (can’t update, just append)
@@ -297,12 +248,9 @@ They just look for files in same directory
     file = NULL;
 
  ・remove(“text.txt”)
-=====================================
 
 
-MEMO
-=======================================================================
+### Reference
 注意: Macのターミナル上で実行できるgccは名前こそgccですが，
 裏側ではApple ClangというLLVMプロジェクトのCコンパイラであるLLVM Clangを用いているため，
 デバッグする際には，GDBではなくLLDBを使います.
-=======================================================================
